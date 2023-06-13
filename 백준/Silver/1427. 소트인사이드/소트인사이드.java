@@ -1,29 +1,23 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main{
+    static int []count = new int [10];
     public static void main(String[]args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String N = br.readLine();
-        int []num = new int[N.length()];
-        for(int i =0 ; i < N.length(); i++){
-            num[i] = Integer.parseInt(N.substring(i,i+1));
+        StringBuilder sb = new StringBuilder();
+        String str = br.readLine();
+        for(int i =0 ; i < str.length();i++){
+            int num = Integer.parseInt(str.substring(i,i+1));
+            count[num]++;
         }
-        for(int i=0 ; i < N.length();i++){
-            int max = i;
-            for(int j= i+1; j < N.length();j++){
-                if(num[j]>num[max]){
-                    max = j;
-                }
-            }
-            if(num[max]>num[i]){
-                int temp = num[max];
-                num[max] = num[i];
-                num[i] = temp;
+        for(int i =count.length-1; i>=0;i--){
+            if(count[i]>=1){
+                sb.append(i);
+                count[i]--;
+                i++;
             }
         }
-        for(int i =0 ; i < N.length();i++){
-            System.out.print(num[i]);
-        }
+        System.out.println(sb);
     }
 }
