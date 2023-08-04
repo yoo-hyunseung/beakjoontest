@@ -1,18 +1,21 @@
 import java.util.*;
+import java.io.*;
 
 public class Main{
-    static Integer dp[] = new Integer [1001];
-    public static void main(String[]args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        dp[1] = 1; // 길이가 1인 경우 
-        dp[2] = 2; // 길이가 2인 경우 // 작은 문제를 초기화
-        //bottom up
-        for(int i = 3 ; i<=n ; i++){
-            dp[i] = (dp[i-1]+dp[i-2])%10007;
-
+    static Integer tile[] = new Integer[1001];
+    public static void main(String[]args)throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        tile[0] = 0;
+        tile[1] = 1;
+        tile[2] = 2;
+        tile[3] = 3;
+        System.out.println(recur(n));
+    }
+    public static int recur(int n){
+        if(tile[n]==null){
+            tile[n] = (recur(n-1)+recur(n-2))%10007;
         }
-        System.out.println(dp[n]);
-        
+        return tile[n];
     }
 }
