@@ -16,7 +16,7 @@ public class Main{
             }
             sum += score;
         }
-        double result = sum/max *100.0/N;
+        double result = sum/max*100.0/N;
         System.out.println(result);
     }
 }
