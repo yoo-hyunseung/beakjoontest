@@ -1,10 +1,13 @@
-import java.io.*;
 import java.util.*;
 
 public class Main{
-    public static void main(String[]args)throws IOException{
-        
-        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-        System.out.println((int)Math.pow((1+Math.pow(2,Integer.parseInt(br.readLine()))),2)); 
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = 2;
+        for(int i = 0 ; i < n ;i++){
+            m+=m-1;
+        }
+        System.out.println((int)Math.pow(m,2));
     }
 }
