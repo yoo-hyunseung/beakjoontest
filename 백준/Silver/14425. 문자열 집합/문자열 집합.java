@@ -1,22 +1,25 @@
-import java.util.*;
-import java.io.*;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 public class Main{
     public static void main(String[]args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        st = new StringTokenizer(br.readLine(), " ");
-        int count =0;
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        Set<String>set = new HashSet<>();
-        for(int i =0 ; i < N ; i ++){
-            set.add(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int count = 0;
+        String []S = new String[n];
+        for(int i =0 ; i< n ; i++){
+            S[i] = br.readLine();
         }
-        for(int i =0 ; i < M; i++){
-            if(set.contains(br.readLine()))
-                count++;
+        for(int i =0 ; i < m; i++){
+            String str = br.readLine();
+            for(int j = 0 ; j< n;j++){
+                if(str.equals(S[j]))count++;
+            }
         }
         System.out.println(count);
+        
     }
 }
