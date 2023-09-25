@@ -1,23 +1,14 @@
-import java.io.*;
-import java.util.*;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 public class Main{
-    static int []count = new int [10];
     public static void main(String[]args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        String str = br.readLine();
-        for(int i =0 ; i < str.length();i++){
-            int num = Integer.parseInt(str.substring(i,i+1));
-            count[num]++;
+        char [] arr = br.readLine().toCharArray();
+        Arrays.sort(arr);
+        for(int i = arr.length-1 ; i>=0;i--){
+            System.out.print(arr[i]);
         }
-        for(int i =count.length-1; i>=0;i--){
-            if(count[i]>=1){
-                sb.append(i);
-                count[i]--;
-                i++;
-            }
-        }
-        System.out.println(sb);
     }
 }
