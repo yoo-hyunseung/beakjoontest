@@ -19,7 +19,8 @@ public class Main{
                     for(int k = 2 ; k <9 ; k++){
                         System.out.println(arr[k]);
                     }
-                    System.exit(0);
+                  //  System.exit(0);
+                    return;
                 }
             }
         }
